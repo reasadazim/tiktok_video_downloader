@@ -1,0 +1,107 @@
+.bg-dark {
+    height: 70px;
+}
+
+button.btn.btn-outline-secondary {
+    border-top-left-radius: 0px !important;
+    border-bottom-left-radius: 0px !important;
+    background: #343a40 !important;
+    color: white !important;
+}
+
+button.btn.btn-outline-secondary:hover {
+    background: #0d6efd !important;
+}
+
+.tab-pane {
+    background: #dee2e6;
+}
+
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    background-color: #dee2e6 !important;
+    border-color: #dee2e6 !important;
+    font-weight: 600 !important;
+}
+
+div#nav-tab {
+    border: none !important;
+}
+.tab-pane {
+    margin-top: -2px;
+    border-radius: 5px !important;
+}
+.nav-tabs .nav-link{
+    font-weight: 600 !important;
+}
+
+.navbar-brand {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    text-shadow: 2px 1px 0 #EE1D52, -2px -1px 0 #69C9D0;
+}
+
+video.rounded {
+    border: 1px solid #d7d7d7;
+}
+
+textarea#json_code {
+    font-family: 'Courier Prime', monospace;
+}
+textarea#json_code::placeholder {
+    font-family: 'Courier Prime', monospace;
+    color: #929292;
+}
+.loader {
+    width: 100%;
+    height: 100vh;
+    background: #ffffffe6;
+    position: fixed;
+    z-index: 9;
+    top: 0;
+    color: white;
+    text-align: center;
+    padding-top: 40vh;
+    display: none;
+}
+
+@media only screen and (max-width: 768px) {
+    .g-recaptcha {
+        transform:scale(0.85);
+        transform-origin:0 0;
+    }
+}
+
+@media screen and (max-width: 768px){
+    input.form-control {
+        font-size: 14px;
+    }
+    input.form-control::placeholder {
+        font-size: 12px;
+    }
+    div#nav-highlights {
+        margin-top: 10px;
+    }
+    div#nav-tab {
+        border: none !important;
+    }
+    .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+        background-color: #dee2e6 !important;
+        border-color: #dee2e6 !important;
+        border-radius: 5px;
+    }
+    .tab-pane {
+        margin-top: 5px;
+        border-radius: 5px !important;
+    }
+    #nav-tab .nav-link {
+        margin-right: 10px !important;
+        margin-bottom: 5px !important;
+        font-size: 13px;
+        border: 1px solid #dee2e6 !important;
+        border-radius: 5px !important;
+    }
+    .nav-link:hover {
+        border-radius: 5px !important;
+    }
+}

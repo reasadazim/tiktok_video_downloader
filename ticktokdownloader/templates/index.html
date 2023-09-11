@@ -1,0 +1,151 @@
+{% extends 'layout.html' %}
+
+{% block seo %}
+    <meta name="title" content="Ticktokgrabber - Best instagram content downloader" />
+    <meta name="keywords" content="Instagrabber, instagram, download, photos, dp, reels, videos, highlights" />
+    <meta name="description" content="Instagrabber is a free online Instagram Content (Photo, Video, Reel, DP, Story & Highlights) Downloader. You can download instagram photo, video, reel, dp, story & highlights without installing any software or registration." />
+    <meta property="og:title" content="Instagrabber - Best instagram content downloader" />
+    <meta property="og:description" content="Instagrabber is a free online Instagram Content (Photo, Video, Reel, DP, Story & Highlights) Downloader. You can download instagram photo, video, reel, dp, story & highlights without installing any software or registration." />
+    <meta property="og:url" content="" />
+    <meta property="og:image" content="../media/photos/logo.png" />
+{% endblock %}
+
+{% block content %}
+
+
+    {#  Alert  #}
+    <div class="container m-auto mt-5">
+        <div class="col-xl-7 m-auto">
+            {% if error %}
+                <div class="alert alert-danger d-flex align-items-center alert-dismissible fade show" role="alert">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill" viewBox="0 0 16 16">
+                        <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                    </svg>
+                    <div style="padding-left: 15px;">
+                        {{ error }}
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            {% endif %}
+
+            {% if success %}
+                <div class="alert alert-success d-flex align-items-center alert-dismissible fade show" role="alert">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-check-circle-fill" viewBox="0 0 16 16">
+                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+                    </svg>
+                    <div style="padding-left: 15px;">
+                        {{ success }}
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            {% endif %}
+
+            {% if warning %}
+                <div class="alert alert-warning d-flex align-items-center alert-dismissible fade show" role="alert">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill" viewBox="0 0 16 16">
+                        <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                    </svg>
+                    <div style="padding-left: 15px;">
+                        {{ warning }}
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            {% endif %}
+
+        </div>
+    </div>
+    {#  END - Alert  #}
+
+    {#  Download Contents  #}
+
+    <div class="container mt-3">
+        {% if download_url_watermerk %}
+            {% for file in files %}
+                <div class="row">
+                    <div class="m-auto mb-5" style="width: 250px;">
+                        <div class="text-center mb-3">
+                            <img src="{{ download_url_cover }}" alt="" width="100%" class="rounded">
+                        </div>
+                        <div style="text-align: center">
+                            <a href="../{{ file.path_nowatermark }}" class="btn btn-sm btn-success" download><i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i> Download (no watermark)</a>
+                        </div>
+                        <br>
+                        <div style="text-align: center">
+                            <a href="../{{ file.path_watermark }}" class="btn btn-sm btn-primary" download><i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i> Download (watermark)</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+
+    {#  END - Download Contents  #}
+
+    <div class="container">
+        <div class="header mb-3">
+            <h3 class="text-center">Download TikTok Video and TikTok Story</h3>
+        </div>
+        <div class="mt-3 col-lg-8 mx-auto card p-3 shadow-lg">
+            <nav>
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                    <button class="nav-link active" id="nav-video-tab" data-bs-toggle="tab" data-bs-target="#nav-video" type="button" role="tab" aria-controls="nav-video" aria-selected="true">
+                        <img src="../media/photos/play.png" alt="" width="20px"> Video
+                    </button>
+                    <button class="nav-link" id="nav-story-tab" data-bs-toggle="tab" data-bs-target="#nav-story" type="button" role="tab" aria-controls="nav-story" aria-selected="false">
+                        <img src="../media/photos/story.png" alt="" width="20px"> Story
+                    </button>
+                </div>
+            </nav>
+            <div class="tab-content" id="nav-tabContent">
+                <div class="p-3 border border-top-0 rounded rounded-top-0 tab-pane fade show active" id="nav-video" role="tabpanel" aria-labelledby="nav-video-tab" tabindex="0">
+                    <form action="../" method="POST">
+                        {% csrf_token %}
+                        <div class="input-group mt-xl-3 mb-3">
+                            <input type="text" name="url" id="url" class="form-control" placeholder="Paste video URL here" required>
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" type="submit"><i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i> Download</button>
+                            </div>
+                        </div>
+                        {{ form.captcha }}
+                    </form>
+                </div>
+                <div class="p-3 border border-top-0 rounded rounded-top-0 tab-pane fade show" id="nav-story" role="tabpanel" aria-labelledby="nav-story-tab" tabindex="0">
+                    <form action="../" method="POST">
+                        {% csrf_token %}
+                        <div class="input-group mt-xl-3 mb-3">
+                            <input type="text" name="url" id="url" class="form-control" placeholder="Paste story URL here" required>
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" type="submit"><i class="fa fa-arrow-circle-o-down" aria-hidden="true"></i> Download</button>
+                            </div>
+                        </div>
+                        {{ form.captcha }}
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-5 mb-5"></div>
+
+    <div class="mt-5 mb-5"></div>
+    <div class="container mt-5 mb-5">
+        <div class="row">
+            <div class="col-lg-8 m-auto">
+                <h4>TikTokGrabber - Best TikTok video downloader</h4>
+                <p><strong>TikTokGrabber</strong> is a free online TikTok video Downloader. You can download TikTok video & TikTok story without installing any software or registration.</p>
+                <h4 class="mt-5">Features</h4>
+                <ul>
+                    <li><strong>Download TikTok video:</strong> TikTokGrabber helps you to download HD version of TikTok Video. Just copy and paste any video link, click on the download button. You are done! TikTokGrabber will scrap HD version of the video with and without watermark make it available to download.</li>
+                </ul>
+                <div class="alert alert-warning mt-5" role="alert">
+                    <h4 class="alert-heading">Terms of service</h4>
+                    <p>TikTokGrabber download tool is designed to help download content posted by your personal account. However, if you use this tool to breach the content and privacy of others, we have the right to stop offering the service.</p>
+                    <hr>
+                    <p class="mb-0">Please read our <a href="../terms">terms of service</a> before using this tool.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
